@@ -3,6 +3,7 @@ arch=arm64
 #export CROSS_COMPILE=$(pwd)/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-
 if [ ! -d "./aarch64-linux-android-4.9" ];
 then
+  echo "downloading compiler---------------------"
   git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b ndk-release-r22
 fi
 export CROSS_COMPILE=$(pwd)/aarch64-linux-android-4.9/bin/aarch64-linux-android-
@@ -16,6 +17,7 @@ then
   make mrproper
   
 fi
+  echo "configing--------------------------------"
   make O=out $config
   echo "build start--------------------------------"
   make O=out -j$(nproc)
