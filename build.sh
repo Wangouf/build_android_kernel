@@ -9,6 +9,7 @@ fi
 export CROSS_COMPILE=$(pwd)/aarch64-linux-android-4.9/bin/aarch64-linux-android-
 export ARCH=$arch
 git clone https://github.com/Edward-Projects/android_kernel_lenovo_J607Z.git
+sudo apt-get install -y build-essential kernel-package libncurses5-dev bzip2
 cd ./android_kernel_lenovo_J607Z
 if [ -d "./out" ];
 then
