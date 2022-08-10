@@ -8,7 +8,7 @@
 src_dir=..
 config=vendor/lito-perf_defconfig
 arch=arm64
-
+subarch=arm64
 
 #-------TOOLCHAIN-----------
 if [ ! -d "./toolchains" ];
@@ -24,6 +24,8 @@ export CROSS_COMPILE_ARM32=arm-linux-androideabi-
 
 export CLANG_TRIPLE=aarch64-linux-gnu-
 
+export SUBARCH=$subarch
+
 export ARCH=$arch
 #-----------RUN-----------
 
@@ -37,7 +39,7 @@ fi
   echo "configing----------------------------"
   make O=out ARCH=$arch $config
   echo "build start--------------------------------"
-  make -j3 CC=clang O=out
+  make -j8 CC=clang O=out
   
   
   
